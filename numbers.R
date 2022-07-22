@@ -1,20 +1,27 @@
 
-sum(x_chrom$female) #27817
-sum(x_chrom$male) #22561
-27817+22561 #50378
 
-27817 / 50378 #0.5521656, female prob 
+#total people on chrX
+length(unique(x_chrom_samples$sample_id)) #5788, number of total people in the sample of X chromosome mutations
 
-22561 / 50378 #0.4478344, male prob
+#total females on chrX
+female_x <- subset(x_chrom_samples, x_chrom_samples$gender == "female")
+
+length(unique(female_x$sample_id)) #2430, number of females in the sample of X chromosome mutations
+
+#total males on chrX
+male_x <- subset(x_chrom_samples, x_chrom_samples$gender == "male")
+
+length(unique(male_x$sample_id)) #3304, number of males in the sample of X chromosome mutations
+
+F <- 2430
+M <- 3304
 
 r = sum(x_chrom$female)/sum(x_chrom$male) #F/M ratio of coding mutations across x chromosome
 
-length(unique(gene_mutations$sample_id)) #number of total people 
 
-samples <- distinct(gene_mutations, gene_mutations$sample_id, .keep_all = TRUE)
 
-males <- filter(samples, gender == "male") #4059 males
+#number of total people in the whole study 
+length(unique(gene_mutations$sample_id)) 
 
-7009-4059 #2950 females
 
 
