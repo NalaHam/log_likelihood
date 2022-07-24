@@ -27,4 +27,13 @@ x_chrom <- filter(gene_mut_count_sex, gene_mut_count_sex$Chromosome == "chrX") #
 small_p <- subset(x_chrom, x_chrom$p_value <= 0.05 )
 
 
+A1BG_df <- subset(gene_mutations, gene_mutations$Gene == "A1BG")
+unique(A1BG_df$Project)
+
+
+
+
+
+
+
 
